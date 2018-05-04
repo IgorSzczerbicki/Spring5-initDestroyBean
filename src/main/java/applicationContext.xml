@@ -9,20 +9,16 @@
 
     <!-- Define your beans here -->
    <bean id ="fortuneService"
-   class = "com.nauka.spring5.beanScopes.HappyFortuneService">
+   class = "com.nauka.spring5.initDestroyMethod.HappyFortuneService">
    </bean>
    
    <bean id ="myCoach"
-   class="com.nauka.spring5.beanScopes.TrackCoach">
+   class="com.nauka.spring5.initDestroyMethod.TrackCoach"
+   init-method="init"
+   destroy-method="destroy">
    	<constructor-arg ref = "fortuneService"/>
    </bean>
-   
-   <bean id ="otherCoach"
-   class="com.nauka.spring5.beanScopes.TrackCoach"
-   scope="prototype">
-   	<constructor-arg ref = "fortuneService"/>
-   </bean>
-   
+      
 </beans>
 
 
